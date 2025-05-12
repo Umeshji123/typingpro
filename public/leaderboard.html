@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Typing Master Leaderboard: View top typing test scores for speed and accuracy.">
+  <meta name="keywords" content="typing test, typing master, leaderboard, typing speed, typing accuracy">
+  <meta name="author" content="Typing Master Team">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Typing Master Leaderboard">
+  <meta property="og:description" content="Check out the top typing test scores on the Typing Master Leaderboard.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/public/leaderboard.html">
+  <meta property="og:image" content="https://yourdomain.com/assets/images/typing-master-og.jpg">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Typing Master Leaderboard">
+  <meta name="twitter:description" content="Check out the top typing test scores on the Typing Master Leaderboard.">
+  <meta name="twitter:image" content="https://yourdomain.com/assets/images/typing-master-og.jpg">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Typing Master Leaderboard</title>
+  <!-- External CSS (remove if assets/css/style.css doesn't exist) -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8fafc;
+      text-align: center;
+      line-height: 1.6;
+      color: #1f2a44;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      box-sizing: border-box;
+      transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+      transition: border 0.3s ease;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #319795;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .logo:hover {
+      color: #38b2ac;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4a5568;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      color: #319795;
+    }
+    h1 {
+      color: #319795;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      transition: color 0.3s ease;
+    }
+    p {
+      font-size: 16px;
+      color: #4a5568;
+      margin: 12px 0;
+      transition: color 0.3s ease;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s ease;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      font-size: 16px;
+      color: #1f2a44;
+      border-bottom: 1px solid #e2e8f0;
+      transition: color 0.3s ease, border 0.3s ease;
+    }
+    th {
+      background: #319795;
+      color: #ffffff;
+      font-weight: 600;
+    }
+    tr:hover {
+      background: #edf2f7;
+    }
+    #error-message {
+      color: #e53e3e;
+      font-size: 16px;
+      margin: 20px 0;
+      display: none;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #4a5568;
+      transition: color 0.3s ease;
+    }
+    footer a {
+      color: #319795;
+      text-decoration: none;
+      margin: 0 12px;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #38b2ac;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 14px;
+      }
+      table {
+        font-size: 14px;
+      }
+      th, td {
+        padding: 8px;
+      }
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="../index.html" class="logo" aria-label="Typing Master Home">Typing Master</a>
+      <div class="header-actions">
+        <nav role="navigation" aria-label="Main navigation">
+          <!-- Local testing -->
+          <a href="../index.html" alt="Typing Master Home">Home</a>
+          <a href="../tutorial.html" alt="Typing Master Tutorial">Tutorial</a>
+          <a href="../assets/main.html" alt="Typing Master Practice">Practice</a>
+          <a href="../lesson.html" alt="Typing Master Lesson">Lesson</a>
+          <a href="./leaderboard.html" class="active" aria-current="page" alt="Typing Master Leaderboard">Leaderboard</a>
+          <!-- Hosting (uncomment for hosting) -->
+          <!--
+          <a href="/" alt="Typing Master Home">Home</a>
+          <a href="/tutorial.html" alt="Typing Master Tutorial">Tutorial</a>
+          <a href="/assets/index.html" alt="Typing Master Practice">Practice</a>
+          <a href="/lesson.html" alt="Typing Master Lesson">Lesson</a>
+          <a href="/public/leaderboard.html" class="active" aria-current="page" alt="Typing Master Leaderboard">Leaderboard</a>
+          -->
+        </nav>
+      </div>
+    </header>
+    <h1>Leaderboard</h1>
+    <p>Check out the top typing test scores from Typing Master!</p>
+    <table id="leaderboard-table">
+      <thead>
+        <tr>
+          <th>Alias</th>
+          <th>Difficulty</th>
+          <th>WPM</th>
+          <th>Accuracy</th>
+          <th>Date</th>
+          <th>language</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboard-body"></tbody>
+    </table>
+    <p id="error-message" role="alert"></p>
+    <footer>
+      <p>© 2025 Typing Master. Crafted with love for typing enthusiasts.</p>
+      <p>
+        
+        <a href="/about.html" alt="Learn about Typing Master">About Us</a> |
+        <a href="/privacy.html" alt="View Typing Master Privacy Policy">Privacy Policy</a> |
+        <a href="/terms.html" alt="View Typing Master Terms of Service">Terms of Service</a> |
+        <a href="/contact.html" alt="Contact Typing Master Support">Contact</a>
+        
+      </p>
+    </footer>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const supabaseUrl = 'https://iornqvqinhzuytmzsosf.supabase.co';
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlvcm5xdnFpbmh6dXl0bXpzb3NmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDY2ODA1ODMsImV4cCI6MjA2MjI1NjU4M30.yddy734StH2-yiHHzNzarePftrdRgFZ2bvT4_6zLSS4';
+      const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+      const leaderboardBody = document.getElementById('leaderboard-body');
+      const errorMessage = document.getElementById('error-message');
+
+      async function fetchLeaderboard() {
+        try {
+          const { data, error } = await supabase
+            .from('scores')
+            .select('alias, difficulty, wpm, accuracy, date, language')
+            .order('wpm', { ascending: false })
+            .limit(10);
+
+          if (error) {
+            console.error('Supabase fetch error:', error.message);
+            errorMessage.textContent = `Failed to load leaderboard: ${error.message}. Please try again.`;
+            errorMessage.style.display = 'block';
+            return;
+          }
+
+          if (!data || data.length === 0) {
+            errorMessage.textContent = 'No scores found in the leaderboard.';
+            errorMessage.style.display = 'block';
+            return;
+          }
+
+          console.log('Leaderboard data fetched:', data); // Debug log
+          leaderboardBody.innerHTML = data.map(score => `
+            <tr>
+              <td>${score.alias || 'Anonymous'}</td>
+              <td>${score.difficulty}</td>
+              <td>${score.wpm}</td>
+              <td>${score.accuracy}%</td>
+              <td>${score.date}</td>
+              <td>${score.language}</td>
+            </tr>
+          `).join('');
+        } catch (e) {
+          console.error('fetchLeaderboard error:', e);
+          errorMessage.textContent = 'Failed to load leaderboard due to a network issue. Please check your connection.';
+          errorMessage.style.display = 'block';
+        }
+      }
+
+      fetchLeaderboard();
+    });
+  </script>
+  <!-- Cloudflare scripts (uncomment for hosting with Cloudflare) -->
+  <!--
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c78c154d17b04c',t:'MTc0NjY5MjUyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c803a7dc56b0ee',t:'MTc0NjY5NzQyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  -->
+</body>
+</html>

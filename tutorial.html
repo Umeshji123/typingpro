@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how to use Typing Master with our step-by-step tutorial.">
+  <meta name="keywords" content="typing master tutorial, typing game guide, typing test instructions, typing practice">
+  <meta name="author" content="Typing Master Team">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Typing Master Tutorial">
+  <meta property="og:description" content="Step-by-step guide to using Typing Master, a fun typing game to improve your skills.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/tutorial.html">
+  <meta property="og:image" content="https://yourdomain.com/images/typing-master-og.jpg">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Typing Master Tutorial">
+  <meta name="twitter:description" content="Step-by-step guide to using Typing Master, a fun typing game to improve your skills.">
+  <meta name="twitter:image" content="https://yourdomain.com/images/typing-master-og.jpg">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Typing Master Tutorial</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8fafc;
+      text-align: center;
+      line-height: 1.6;
+      color: #1f2a44;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode {
+      background-color: #1a202c;
+      color: #e2e8f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      box-sizing: border-box;
+      text-align: left;
+      transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode .container {
+      background: linear-gradient(145deg, #2d3748, #1a202c);
+      border: 1px solid #4a5568;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+      transition: border 0.3s ease;
+    }
+    body.dark-mode header {
+      border-bottom: 1px solid #4a5568;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #319795;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode .logo {
+      color: #81e6d9;
+    }
+    .logo:hover {
+      color: #38b2ac;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4a5568;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode nav a {
+      color: #cbd5e0;
+    }
+    nav a:hover, nav a.active {
+      color: #319795;
+    }
+    body.dark-mode nav a:hover, body.dark-mode nav a.active {
+      color: #81e6d9;
+    }
+    h1 {
+      color: #319795;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode h1 {
+      color: #81e6d9;
+    }
+    h2 {
+      color: #319795;
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 32px;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode h2 {
+      color: #81e6d9;
+    }
+    p, li {
+      font-size: 16px;
+      color: #4a5568;
+      margin: 12px 0;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode p, body.dark-mode li {
+      color: #cbd5e0;
+    }
+    ul {
+      list-style: disc inside;
+      padding: 0 20px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      cursor: pointer;
+      background: #319795;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode .cta-button {
+      background: #2c7a7b;
+      color: #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .cta-button:hover {
+      background: #38b2ac;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode .cta-button:hover {
+      background: #319795;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #4a5568;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode footer {
+      color: #cbd5e0;
+    }
+    footer a {
+      color: #319795;
+      text-decoration: none;
+      margin: 0 12px;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode footer a {
+      color: #81e6d9;
+    }
+    footer a:hover {
+      color: #38b2ac;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 24px;
+      }
+      p, li {
+        font-size: 14px;
+      }
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="logo" aria-label="Typing Master Home">Typing Master</a>
+      <nav role="navigation" aria-label="Main navigation">
+        <!-- Hosting paths -->
+        <a href="/" alt="Typing Master Home" aria-label="Typing Master Home">Home</a>
+        <a href="/tutorial.html" alt="Typing Master Tutorial" aria-label="Typing Master Tutorial">Tutorial</a>
+        <a href="/assets/main.html" alt="Typing Practice" aria-label="Typing Practice">Practice</a>
+        <a href="/lesson.html" alt="Typing Lessons" aria-label="Typing Lessons">Lesson</a>
+        <a href="/public/leaderboard.html" alt="Typing Master Leaderboard" aria-label="View Typing Master Leaderboard">Leaderboard</a>
+        <!-- Local testing (uncomment for local) -->
+        <!--
+        <a href="main.html" alt="Typing Master Home" aria-label="Typing Master Home">Home</a>
+        <a href="tutorial.html" alt="Typing Master Tutorial" aria-label="Typing Master Tutorial">Tutorial</a>
+        <a href="assets/index.html" alt="Typing Practice" aria-label="Typing Practice">Practice</a>
+        <a href="lesson.html" alt="Typing Lessons" aria-label="Typing Lessons">Lesson</a>
+        <a href="public/leaderboard.html" alt="Typing Master Leaderboard" aria-label="View Typing Master Leaderboard">Leaderboard</a>
+        -->
+      </nav>
+    </header>
+    <h1>Tutorial</h1>
+    <p>Get started with Typing Master! This tutorial will guide you through using our fun and engaging typing game to improve your typing skills.</p>
+    <h2>How to Play</h2>
+    <ul>
+      <li><strong>Start the Game:</strong> On the homepage, click the "Start Typing" button to begin a 25-second typing test.</li>
+      <li><strong>Type the Text:</strong> A random text will appear. Type it as accurately and quickly as possible in the input box provided.</li>
+      <li><strong>Track Your Progress:</strong> Your words per minute (WPM), accuracy, and score will be calculated in real-time.</li>
+      <li><strong>View Results:</strong> After the timer ends, a results screen will show your WPM, accuracy, and high score.</li>
+    </ul>
+    <h2>Tips for Success</h2>
+    <ul>
+      <li><strong>Practice Regularly:</strong> Short, daily sessions can significantly boost your typing speed and accuracy.</li>
+      <li><strong>Adjust Settings:</strong> Use the settings menu to customize text difficulty or enable/disable features like sound effects.</li>
+      <li><strong>Stay Relaxed:</strong> Keep your hands relaxed to type more comfortably and avoid fatigue.</li>
+    </ul>
+    <h2>Saving Your Progress</h2>
+    <p>Your high scores and settings are saved in your browser’s local storage, so you can pick up where you left off. Clear them anytime via the settings menu if needed.</p>
+    <h2>Need Help?</h2>
+    <p>If you have questions or need assistance, visit our 
+      <!-- Hosting path -->
+      <a href="/contact.html" alt="Contact Typing Master Support">contact page</a>
+      <!-- Local testing (uncomment for local) -->
+      <!-- <a href="contact.html" alt="Contact Typing Master Support">contact page</a> -->
+      to reach out.</p>
+    <a class="cta-button" href="/" alt="Start typing test">
+      <!-- Local testing (uncomment for local) -->
+      <!-- <a class="cta-button" href="main.html" alt="Start typing test"> -->
+      Start Typing Now
+    </a>
+    <footer>
+      <p>© 2025 Typing Master. Crafted with love for typing enthusiasts.</p>
+      <p>
+        <!-- Hosting paths -->
+        <a href="/" alt="Typing Master Home">Home</a> | 
+        <a href="/about.html" alt="Learn about Typing Master">About Us</a> | 
+        <a href="/privacy.html" alt="Typing Master Privacy Policy">Privacy Policy</a> | 
+        <a href="/terms.html" alt="Typing Master Terms of Service">Terms of Service</a> | 
+        <a href="/contact.html" alt="Contact Typing Master Support">Contact</a>
+        <!-- Local testing (uncomment for local) -->
+        <!--
+        <a href="main.html" alt="Typing Master Home">Home</a> | 
+        <a href="about.html" alt="Learn about Typing Master">About Us</a> | 
+        <a href="privacy.html" alt="Typing Master Privacy Policy">Privacy Policy</a> | 
+        <a href="terms.html" alt="Typing Master Terms of Service">Terms of Service</a> | 
+        <a href="contact.html" alt="Contact Typing Master Support">Contact</a>
+        -->
+      </p>
+    </footer>
+  </div>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Typing Master Tutorial",
+    "url": "https://yourdomain.com/tutorial.html",
+    "description": "Learn how to use Typing Master with our step-by-step tutorial.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Typing Master",
+      "url": "https://yourdomain.com/"
+    }
+  }
+  </script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c8b3ecbe206737',t:'MTc0NjcwNDY0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

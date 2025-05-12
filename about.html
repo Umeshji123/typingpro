@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about Typing Master, a fun typing game to improve your skills.">
+  <meta name="keywords" content="typing master, typing game, typing practice, about typing master, typing speed">
+  <meta name="author" content="Typing Master Team">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="About Typing Master - Typing Game">
+  <meta property="og:description" content="Discover Typing Master, a fun typing game to boost your typing skills.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/about.html">
+  <meta property="og:image" content="https://yourdomain.com/images/typing-master-og.jpg">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Typing Master - Typing Game">
+  <meta name="twitter:description" content="Discover Typing Master, a fun typing game to boost your typing skills.">
+  <meta name="twitter:image" content="https://yourdomain.com/images/typing-master-og.jpg">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>About Typing Master</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8fafc;
+      text-align: center;
+      line-height: 1.6;
+      color: #1f2a44;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode {
+      background-color: #1a202c;
+      color: #e2e8f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      box-sizing: border-box;
+      transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode .container {
+      background: linear-gradient(145deg, #2d3748, #1a202c);
+      border: 1px solid #4a5568;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+      transition: border 0.3s ease;
+    }
+    body.dark-mode header {
+      border-bottom: 1px solid #4a5568;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #319795;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode .logo {
+      color: #81e6d9;
+    }
+    .logo:hover {
+      color: #38b2ac;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4a5568;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode nav a {
+      color: #cbd5e0;
+    }
+    nav a:hover, nav a.active {
+      color: #319795;
+    }
+    body.dark-mode nav a:hover, body.dark-mode nav a.active {
+      color: #81e6d9;
+    }
+    h1 {
+      color: #319795;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode h1 {
+      color: #81e6d9;
+    }
+    p {
+      font-size: 16px;
+      color: #4a5568;
+      margin: 12px 0;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode p {
+      color: #cbd5e0;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0;
+      cursor: pointer;
+      background: #319795;
+      color: #ffffff;
+      text-decoration: none;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode .cta-button {
+      background: #2c7a7b;
+      color: #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .cta-button:hover {
+      background: #38b2ac;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode .cta-button:hover {
+      background: #319795;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #4a5568;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode footer {
+      color: #cbd5e0;
+    }
+    footer a {
+      color: #319795;
+      text-decoration: none;
+      margin: 0 12px;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode footer a {
+      color: #81e6d9;
+    }
+    footer a:hover {
+      color: #38b2ac;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 14px;
+      }
+      .cta-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo" aria-label="Typing Master Home">Typing Master</a>
+      <nav role="navigation" aria-label="Main navigation">
+        
+        <a href="/" alt="Typing Master Home">Home</a>
+        <a href="/tutorial.html" alt="Typing Master Tutorial">Tutorial</a>
+        <a href="/assets/main.html" alt="Typing Master Practice">Practice</a>
+        <a href="/lesson.html" alt="Typing Master Lesson">Lesson</a>
+        <a href="/public/leaderboard.html" alt="Typing Master Leaderboard">Leaderboard</a>
+        
+        
+      
+      </nav>
+    </header>
+    <h1>About Typing Master</h1>
+    <p>Welcome to Typing Master! Our goal is to make typing practice fun and engaging. Inspired by the joy of learning, we created a game that feels like a relaxing escape while you sharpen your typing skills.</p>
+    <p>We believe learning should be enjoyable. That’s why Typing Master offers a cozy vibe, appealing visuals, and an easy-to-use interface. Whether you’re a beginner or a typing pro, our game is designed for everyone.</p>
+    <p>We’re a small team passionate about creating tools that help people improve in a fun way. Typing Master is our way of sharing that passion with you.</p>
+    <p>Thanks for visiting — we hope you love typing with us!</p>
+    <a class="cta-button" href="index.html" alt="Start typing test">Start Typing</a>
+    <footer>
+      <p>© 2025 Typing Master. Crafted with love for typing enthusiasts.</p>
+      <p>
+        <!-- Local testing -->
+        <a href="index.html" alt="Typing Master Home">Home</a> | 
+        <a href="about.html" alt="Learn about Typing Master">About Us</a> | 
+        <a href="privacy.html" alt="Typing Master Privacy Policy">Privacy Policy</a> | 
+        <a href="terms.html" alt="Typing Master Terms of Service">Terms of Service</a> | 
+        <a href="contact.html" alt="Contact Typing Master Support">Contact</a>
+        <!-- Hosting (uncomment for hosting) -->
+        <!--
+        <a href="/" alt="Typing Master Home">Home</a> | 
+        <a href="/about.html" alt="Learn about Typing Master">About Us</a> | 
+        <a href="/privacy.html" alt="Typing Master Privacy Policy">Privacy Policy</a> | 
+        <a href="/terms.html" alt="Typing Master Terms of Service">Terms of Service</a> | 
+        <a href="/contact.html" alt="Contact Typing Master Support">Contact</a>
+        -->
+      </p>
+    </footer>
+  </div>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "About Typing Master",
+    "url": "https://yourdomain.com/about.html",
+    "description": "Learn about Typing Master, a fun typing game designed to improve your typing skills.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Typing Master",
+      "url": "https://yourdomain.com/"
+    }
+  }
+  </script>
+  <!-- Navigation Highlighting -->
+  <script>
+    // Set active navigation link
+    function setActiveNavLink() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath.includes('about.html') && linkPath.includes('about.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Initialize
+    setActiveNavLink();
+  </script>
+  <!-- Cloudflare script -->
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c87cf86aa5adcc',t:'MTc0NjcwMjM5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

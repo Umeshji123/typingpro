@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practice typing with Typing Master's lesson modes: single keys, key pairs, or full text.">
+  <meta name="keywords" content="typing master lesson, typing practice, touch typing, keyboard lessons, typing skills">
+  <meta name="author" content="Typing Master Team">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Typing Master Lesson">
+  <meta property="og:description" content="Practice typing with Typing Master's lesson modes: single keys, key pairs, or full text.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/lesson.html">
+  <meta property="og:image" content="https://yourdomain.com/images/typing-master-og.jpg">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Typing Master Lesson">
+  <meta name="twitter:description" content="Practice typing with Typing Master's lesson modes: single keys, key pairs, or full text.">
+  <meta name="twitter:image" content="https://yourdomain.com/images/typing-master-og.jpg">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Typing Master Lesson</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8fafc;
+      text-align: center;
+      color: #1f2a44;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body.dark-mode {
+      background-color: #1a202c;
+      color: #e2e8f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode .container {
+      background: linear-gradient(145deg, #2d3748, #1a202c);
+      border: 1px solid #4a5568;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+      transition: border 0.3s ease;
+    }
+    body.dark-mode header {
+      border-bottom: 1px solid #4a5568;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #319795;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode .logo {
+      color: #81e6d9;
+    }
+    .logo:hover {
+      color: #38b2ac;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4a5568;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode nav a {
+      color: #cbd5e0;
+    }
+    nav a:hover, nav a.active {
+      color: #319795;
+    }
+    body.dark-mode nav a:hover, body.dark-mode nav a.active {
+      color: #81e6d9;
+    }
+    h1 {
+      color: #319795;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode h1 {
+      color: #81e6d9;
+    }
+    h2 {
+      color: #319795;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 20px 0;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode h2 {
+      color: #81e6d9;
+    }
+    p {
+      font-size: 16px;
+      color: #4a5568;
+      margin: 12px 0;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode p {
+      color: #cbd5e0;
+    }
+    select {
+      width: 200px;
+      padding: 12px;
+      font-size: 16px;
+      margin: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #1f2a44;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    body.dark-mode select {
+      background: #2d3748;
+      border: 1px solid #4a5568;
+      color: #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    select:focus {
+      outline: none;
+      border-color: #319795;
+      box-shadow: 0 0 0 3px rgba(49, 151, 149, 0.2);
+    }
+    input {
+      width: calc(100% - 24px);
+      padding: 16px;
+      font-size: 16px;
+      margin: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #1f2a44;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode input {
+      background: #2d3748;
+      border: 1px solid #4a5568;
+      color: #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    input:focus {
+      outline: none;
+      border-color: #319795;
+      box-shadow: 0 0 0 3px rgba(49, 151, 149, 0.2);
+    }
+    input.correct {
+      border-color: #319795;
+      background: #e6fffa;
+    }
+    body.dark-mode input.correct {
+      background: #2c7a7b;
+      border-color: #81e6d9;
+    }
+    input.error {
+      border-color: #e53e3e;
+      background: #fff5f5;
+    }
+    body.dark-mode input.error {
+      border-color: #f687b3;
+      background: #c53030;
+    }
+    #target-text {
+      font-size: 24px;
+      font-weight: 600;
+      color: #319795;
+      margin: 20px 0;
+      min-height: 32px;
+      word-wrap: break-word;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode #target-text {
+      color: #81e6d9;
+    }
+    #target-text.incorrect {
+      background-color: #fed7d7;
+      animation: flash 0.3s ease;
+    }
+    @keyframes flash {
+      0% { background-color: #fed7d7; }
+      50% { background-color: transparent; }
+      100% { background-color: #fed7d7; }
+    }
+    #feedback {
+      display: block;
+      font-size: 16px;
+      margin: 12px auto;
+      color: #e53e3e;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode #feedback {
+      color: #f687b3;
+    }
+    #score {
+      font-size: 20px;
+      font-weight: 600;
+      color: #4a5568;
+      margin: 16px 0;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode #score {
+      color: #cbd5e0;
+    }
+    .button-timer-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 12px auto;
+      max-width: 424px;
+    }
+    #timer {
+      width: 200px;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #4a5568;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode #timer {
+      background: #2d3748;
+      border: 1px solid #4a5568;
+      color: #cbd5e0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    button {
+      width: 200px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #319795;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    body.dark-mode button {
+      background: #2c7a7b;
+      color: #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    button:hover {
+      background: #38b2ac;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    body.dark-mode button:hover {
+      background: #319795;
+    }
+    #results {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      z-index: 1000;
+      max-width: 600px;
+      width: 90%;
+      transition: background 0.3s ease;
+    }
+    body.dark-mode #results {
+      background: #2d3748;
+    }
+    #results h2 {
+      color: #319795;
+      margin-top: 0;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode #results h2 {
+      color: #81e6d9;
+    }
+    #results p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    #results button {
+      width: auto;
+      padding: 10px 20px;
+    }
+    #finger-placement {
+      margin: 20px 12px;
+      text-align: left;
+      background: #edf2f7;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      transition: background 0.3s ease, border 0.3s ease;
+    }
+    body.dark-mode #finger-placement {
+      background: #2d3748;
+      border: 1px solid #4a5568;
+    }
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 4px;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 12px;
+      padding: 10px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+    body.dark-mode .keyboard {
+      background: #2d3748;
+    }
+    .key {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      background: #e2e8f0;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      text-align: center;
+      min-height: 30px;
+      transition: background 0.3s ease, border 0.3s ease;
+    }
+    body.dark-mode .key {
+      background: #4a5568;
+      border: 1px solid #718096;
+    }
+    .key.left-pinky { background: #ff6b6b; color: #ffffff; }
+    .key.left-ring { background: #ff9f43; color: #ffffff; }
+    .key.left-middle { background: #feca57; color: #1f2a44; }
+    .key.left-index { background: #1dd1a1; color: #ffffff; }
+    .key.right-index { background: #00d2d3; color: #ffffff; }
+    .key.right-middle { background: #54a0ff; color: #ffffff; }
+    .key.right-ring { background: #5c7cfa; color: #ffffff; }
+    .key.right-pinky { background: #ff5e57; color: #ffffff; }
+    .key.thumb { background: #a29bfe; color: #ffffff; }
+    .key.space { grid-column: span 5; }
+    .key.highlight {
+      filter: brightness(1.2);
+      border: 2px solid #319795;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #4a5568;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode .legend {
+      color: #cbd5e0;
+    }
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #4a5568;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode footer {
+      color: #cbd5e0;
+    }
+    footer a {
+      color: #319795;
+      text-decoration: none;
+      margin: 0 12px;
+      transition: color 0.3s ease;
+    }
+    body.dark-mode footer a {
+      color: #81e6d9;
+    }
+    footer a:hover {
+      color: #38b2ac;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      p, #feedback, #score {
+        font-size: 14px;
+      }
+      select, #timer, button {
+        width: 180px;
+        padding: 10px;
+        margin: 8px;
+      }
+      input {
+        padding: 12px;
+        margin: 8px;
+      }
+      #target-text {
+        font-size: 20px;
+      }
+      .button-timer-wrapper {
+        flex-direction: column;
+        align-items: center;
+        max-width: 180px;
+        gap: 8px;
+        margin: 8px auto;
+      }
+      .keyboard {
+        grid-template-columns: repeat(10, 1fr);
+        font-size: 10px;
+        gap: 2px;
+        padding: 8px;
+      }
+      .key {
+        padding: 6px;
+        min-height: 24px;
+      }
+      .legend {
+        font-size: 12px;
+        gap: 8px;
+      }
+      footer {
+        font-size: 12px;
+      }
+      footer a {
+        margin: 0 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="logo" aria-label="Typing Master Home">Typing Master</a>
+      <nav role="navigation" aria-label="Main navigation">
+        
+        <a href="/" alt="Typing Master Home">Home</a>
+        <a href="/tutorial.html" alt="Typing Master Tutorial">Tutorial</a>
+        <a href="/assets/main.html" alt="Typing Master Practice">Practice</a>
+        <a href="/lesson.html" aria-current="page" alt="Typing Master Lesson">Lesson</a>
+        <a href="/public/leaderboard.html" alt="Typing Master Leaderboard">Leaderboard</a>
+        
+        
+      </nav>
+    </header>
+    <h1>Lesson</h1>
+    <p>Practice typing in different modes: single keys, key pairs, or full text.</p>
+    <div class="practice-area">
+      <select id="practice-mode">
+        <option value="single">Single Keys</option>
+        <option value="pair">Key Pairs</option>
+        <option value="text">Full Text</option>
+      </select>
+      <select id="practice-duration">
+        <option value="60">1 Minute</option>
+        <option value="300">5 Minutes</option>
+        <option value="600">10 Minutes</option>
+      </select>
+      <select id="keyboard-layout" aria-label="Select keyboard layout">
+        <option value="qwerty">QWERTY</option>
+        <option value="dvorak">Dvorak</option>
+        <option value="colemak">Colemak</option>
+      </select>
+      <div id="target-text"></div>
+      <input type="text" id="user-input" placeholder="Type here..." autocomplete="off">
+      <p id="score">Score: 0</p>
+      <span id="feedback"></span>
+      <div class="button-timer-wrapper">
+        <button id="reset-btn">Reset</button>
+        <div id="timer">Time Left: 0s</div>
+      </div>
+      <div id="finger-placement" role="region" aria-label="Keyboard finger placement guide">
+        <h2>Finger Placement Guide</h2>
+        <p>Learn proper touch typing by placing your fingers on the home row. Type a key to see which finger to use.</p>
+        <div class="keyboard" id="keyboard"></div>
+        <div class="legend">
+          <span><div class="legend-color" style="background: #ff6b6b;"></div> Left Pinky</span>
+          <span><div class="legend-color" style="background: #ff9f43;"></div> Left Ring</span>
+          <span><div class="legend-color" style="background: #feca57;"></div> Left Middle</span>
+          <span><div class="legend-color" style="background: #1dd1a1;"></div> Left Index</span>
+          <span><div class="legend-color" style="background: #00d2d3;"></div> Right Index</span>
+          <span><div class="legend-color" style="background: #54a0ff;"></div> Right Middle</span>
+          <span><div class="legend-color" style="background: #5c7cfa;"></div> Right Ring</span>
+          <span><div class="legend-color" style="background: #ff5e57;"></div> Right Pinky</span>
+          <span><div class="legend-color" style="background: #a29bfe;"></div> Thumb</span>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 Typing Master. Crafted with love for typing enthusiasts.</p>
+      <p>
+        <!-- Local testing -->
+        <a href="index.html" alt="Typing Master Home">Home</a> | 
+        <a href="about.html" alt="Learn about Typing Master">About Us</a> | 
+        <a href="privacy.html" alt="Typing Master Privacy Policy">Privacy Policy</a> | 
+        <a href="terms.html" alt="Typing Master Terms of Service">Terms of Service</a> | 
+        <a href="contact.html" alt="Contact Typing Master Support">Contact</a>
+        <!-- Hosting (uncomment for hosting) -->
+        <!--
+        <a href="/" alt="Typing Master Home">Home</a> | 
+        <a href="/about.html" alt="Learn about Typing Master">About Us</a> | 
+        <a href="/privacy.html" alt="Typing Master Privacy Policy">Privacy Policy</a> | 
+        <a href="/terms.html" alt="Typing Master Terms of Service">Terms of Service</a> | 
+        <a href="/contact.html" alt="Contact Typing Master Support">Contact</a>
+        -->
+      </p>
+    </footer>
+  </div>
+  <div id="results">
+    <h2>Typing Results</h2>
+    <p id="result-score"></p>
+    <p id="result-errors"></p>
+    <p id="result-accuracy"></p>
+    <p id="result-practice-words"></p>
+    <button id="restart-btn">Restart</button>
+  </div>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Typing Master Lesson",
+    "url": "https://yourdomain.com/lesson.html",
+    "description": "Practice typing with Typing Master's lesson modes: single keys, key pairs, or full text.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Typing Master",
+      "url": "https://yourdomain.com/"
+    }
+  }
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const practiceMode = document.getElementById('practice-mode');
+      const practiceDuration = document.getElementById('practice-duration');
+      const targetText = document.getElementById('target-text');
+      const userInput = document.getElementById('user-input');
+      const feedback = document.getElementById('feedback');
+      const scoreDisplay = document.getElementById('score');
+      const timerDisplay = document.getElementById('timer');
+      const resetBtn = document.getElementById('reset-btn');
+      const resultsDiv = document.getElementById('results');
+      const restartBtn = document.getElementById('restart-btn');
+      const layoutSelect = document.getElementById('keyboard-layout');
+      const keyboardContainer = document.getElementById('keyboard');
+
+      const singleKeys = ['a', 's', 'd', 'f', 'j', 'k', 'l', 'g', 'h', 'b', 'n', 'm'];
+      const keyPairs = ['qw', 'er', 'ty', 'ui', 'io', 'op', 'df', 'as', 'gh', 'zx', 'cv', 'bn', 'jk', 'mn', 'df', 'gh', 'kl', 'sa', 'fd', ';', ',', 'hj', 'nm',
+                        'qe', 'et', 'tu', 'uo', 'po', 'sd', 'da', 'gf', 'hg', 'kj', 'lk', 'xz', 'vc', 'bv', 'nb', 'za', 'hb', '.', 'cd', 'ce', 'vf', 'bg',
+                        'qa', 'ws', 'ed', 'rf', 'tg', 'yh', 'uj', 'ik', 'ol', 'pl', 'bt', 'cf', 'cd', 'xs', 'fv', 'gv', 'im', 'ok', 'om', 'jn', 'on'];
+      const fullTexts = [
+        'The quick brown fox jumps over the lazy dog',
+        'A fox fled from danger in the deep forest',
+        'Bright stars shine in the clear night sky'
+      ];
+
+      let currentText = '';
+      let currentWords = [];
+      let wordIndex = 0;
+      let score = 0;
+      let totalChars = 0;
+      let errorHits = 0;
+      let correctChars = 0;
+      let errorWords = {};
+      let timerInterval = null;
+      let timeLeft = 0;
+      let isPracticeActive = false;
+
+      const keyboardLayouts = {
+        qwerty: {
+          keys: [
+            { key: "1", finger: "left-pinky" }, { key: "2", finger: "left-ring" }, { key: "3", finger: "left-middle" },
+            { key: "4", finger: "left-index" }, { key: "5", finger: "left-index" }, { key: "6", finger: "right-index" },
+            { key: "7", finger: "right-index" }, { key: "8", finger: "right-middle" }, { key: "9", finger: "right-ring" },
+            { key: "0", finger: "right-pinky" }, { key: "-", finger: "right-pinky" }, { key: "=", finger: "right-pinky" },
+            { key: "Backspace", finger: "right-pinky", span: 3 },
+            { key: "q", finger: "left-pinky" }, { key: "w", finger: "left-ring" }, { key: "e", finger: "left-middle" },
+            { key: "r", finger: "left-index" }, { key: "t", finger: "left-index" }, { key: "y", finger: "right-index" },
+            { key: "u", finger: "right-index" }, { key: "i", finger: "right-middle" }, { key: "o", finger: "right-ring" },
+            { key: "p", finger: "right-pinky" }, { key: "]", finger: "right-pinky" }, { key: "]", finger: "right-pinky" },
+            { key: "\\", finger: "right-pinky", span: 3 },
+            { key: "a", finger: "left-pinky" }, { key: "s", finger: "left-ring" }, { key: "d", finger: "left-middle" },
+            { key: "f", finger: "left-index" }, { key: "g", finger: "left-index" }, { key: "h", finger: "right-index" },
+            { key: "j", finger: "right-index" }, { key: "k", finger: "right-middle" }, { key: "l", finger: "right-ring" },
+            { key: ";", finger: "right-pinky" }, { key: "'", finger: "right-pinky" }, { key: "Enter", finger: "right-pinky", span: 4 },
+            { key: "z", finger: "left-pinky" }, { key: "x", finger: "left-ring" }, { key: "c", finger: "left-middle" },
+            { key: "v", finger: "left-index" }, { key: "b", finger: "left-index" }, { key: "n", finger: "right-index" },
+            { key: "m", finger: "right-index" }, { key: ",", finger: "right-middle" }, { key: ".", finger: "right-ring" },
+            { key: "/", finger: "right-pinky" }, { key: "Shift", finger: "right-pinky", span: 5 },
+            { key: " ", finger: "thumb", span: 5, class: "space" }
+          ],
+          keyToFinger: {
+            '1': 'left-pinky', 'q': 'left-pinky', 'a': 'left-pinky', 'z': 'left-pinky',
+            '2': 'left-ring', 'w': 'left-ring', 's': 'left-ring', 'x': 'left-ring',
+            '3': 'left-middle', 'e': 'left-middle', 'd': 'left-middle', 'c': 'left-middle',
+            '4': 'left-index', '5': 'left-index', 'r': 'left-index', 't': 'left-index',
+            'f': 'left-index', 'g': 'left-index', 'v': 'left-index', 'b': 'left-index',
+            '6': 'right-index', '7': 'right-index', 'y': 'right-index', 'u': 'right-index',
+            'h': 'right-index', 'j': 'right-index', 'n': 'right-index', 'm': 'right-index',
+            '8': 'right-middle', 'i': 'right-middle', 'k': 'right-middle', ',': 'right-middle',
+            '9': 'right-ring', 'o': 'right-ring', 'l': 'right-ring', '.': 'right-ring',
+            '0': 'right-pinky', 'p': 'right-pinky', ';': 'right-pinky', '/': 'right-pinky',
+            '[': 'right-pinky', ']': 'right-pinky', '\\': 'right-pinky', "'": 'right-pinky',
+            '-': 'right-pinky', '=': 'right-pinky', 'Enter': 'right-pinky', 'Shift': 'right-pinky',
+            'Backspace': 'right-pinky', ' ': 'thumb'
+          }
+        },
+        dvorak: {
+          keys: [
+            { key: "1", finger: "left-pinky" }, { key: "2", finger: "left-ring" }, { key: "3", finger: "left-middle" },
+            { key: "4", finger: "left-index" }, { key: "5", finger: "left-index" }, { key: "6", finger: "right-index" },
+            { key: "7", finger: "right-index" }, { key: "8", finger: "right-middle" }, { key: "9", finger: "right-ring" },
+            { key: "0", finger: "right-pinky" }, { key: "[", finger: "right-pinky" }, { key: "]", finger: "right-pinky" },
+            { key: "Backspace", finger: "right-pinky", span: 3 },
+            { key: "'", finger: "left-pinky" }, { key: ",", finger: "left-ring" }, { key: ".", finger: "left-middle" },
+            { key: "p", finger: "left-index" }, { key: "y", finger: "left-index" }, { key: "f", finger: "right-index" },
+            { key: "g", finger: "right-index" }, { key: "c", finger: "right-middle" }, { key: "r", finger: "right-ring" },
+            { key: "l", finger: "right-pinky" }, { key: "/", finger: "right-pinky" }, { key: "=", finger: "right-pinky" },
+            { key: "\\", finger: "right-pinky", span: 3 },
+            { key: "a", finger: "left-pinky" }, { key: "o", finger: "left-ring" }, { key: "e", finger: "left-middle" },
+            { key: "u", finger: "left-index" }, { key: "i", finger: "left-index" }, { key: "d", finger: "right-index" },
+            { key: "h", finger: "right-index" }, { key: "t", finger: "right-middle" }, { key: "n", finger: "right-ring" },
+            { key: "s", finger: "right-pinky" }, { key: "-", finger: "right-pinky" }, { key: "Enter", finger: "right-pinky", span: 4 },
+            { key: ";", finger: "left-pinky" }, { key: "q", finger: "left-ring" }, { key: "j", finger: "left-middle" },
+            { key: "k", finger: "left-index" }, { key: "x", finger: "left-index" }, { key: "b", finger: "right-index" },
+            { key: "m", finger: "right-index" }, { key: "w", finger: "right-middle" }, { key: "v", finger: "right-ring" },
+            { key: "z", finger: "right-pinky" }, { key: "Shift", finger: "right-pinky", span: 5 },
+            { key: " ", finger: "thumb", span: 5, class: "space" }
+          ],
+          keyToFinger: {
+            '1': 'left-pinky', "'": 'left-pinky', 'a': 'left-pinky', ';': 'left-pinky',
+            '2': 'left-ring', ',': 'left-ring', 'o': 'left-ring', 'q': 'left-ring',
+            '3': 'left-middle', '.': 'left-middle', 'e': 'left-middle', 'j': 'left-middle',
+            '4': 'left-index', '5': 'left-index', 'p': 'left-index', 'y': 'left-index',
+            'u': 'left-index', 'i': 'left-index', 'k': 'left-index', 'x': 'left-index',
+            '6': 'right-index', '7': 'right-index', 'f': 'right-index', 'g': 'right-index',
+            'd': 'right-index', 'h': 'right-index', 'b': 'right-index', 'm': 'right-index',
+            '8': 'right-middle', 'c': 'right-middle', 't': 'right-middle', 'w': 'right-middle',
+            '9': 'right-ring', 'r': 'right-ring', 'n': 'right-ring', 'v': 'right-ring',
+            '0': 'right-pinky', 'l': 'right-pinky', 's': 'right-pinky', 'z': 'right-pinky',
+            '[': 'right-pinky', ']': 'right-pinky', '/': 'right-pinky', '=': 'right-pinky',
+            '\\': 'right-pinky', '-': 'right-pinky', 'Enter': 'right-pinky', 'Shift': 'right-pinky',
+            'Backspace': 'right-pinky', ' ': 'thumb'
+          }
+        },
+        colemak: {
+          keys: [
+            { key: "1", finger: "left-pinky" }, { key: "2", finger: "left-ring" }, { key: "3", finger: "left-middle" },
+            { key: "4", finger: "left-index" }, { key: "5", finger: "left-index" }, { key: "6", finger: "right-index" },
+            { key: "7", finger: "right-index" }, { key: "8", finger: "right-middle" }, { key: "9", finger: "right-ring" },
+            { key: "0", finger: "right-pinky" }, { key: "-", finger: "right-pinky" }, { key: "=", finger: "right-pinky" },
+            { key: "Backspace", finger: "right-pinky", span: 3 },
+            { key: "q", finger: "left-pinky" }, { key: "w", finger: "left-ring" }, { key: "f", finger: "left-middle" },
+            { key: "p", finger: "left-index" }, { key: "g", finger: "left-index" }, { key: "j", finger: "right-index" },
+            { key: "l", finger: "right-index" }, { key: "u", finger: "right-middle" }, { key: "y", finger: "right-ring" },
+            { key: ";", finger: "right-pinky" }, { key: "[", finger: "right-pinky" }, { key: "]", finger: "right-pinky" },
+            { key: "\\", finger: "right-pinky", span: 3 },
+            { key: "a", finger: "left-pinky" }, { key: "r", finger: "left-ring" }, { key: "s", finger: "left-middle" },
+            { key: "t", finger: "left-index" }, { key: "d", finger: "left-index" }, { key: "h", finger: "right-index" },
+            { key: "n", finger: "right-index" }, { key: "e", finger: "right-middle" }, { key: "i", finger: "right-ring" },
+            { key: "o", finger: "right-pinky" }, { key: "'", finger: "right-pinky" }, { key: "Enter", finger: "right-pinky", span: 4 },
+            { key: "z", finger: "left-pinky" }, { key: "x", finger: "left-ring" }, { key: "c", finger: "left-middle" },
+            { key: "v", finger: "left-index" }, { key: "b", finger: "left-index" }, { key: "k", finger: "right-index" },
+            { key: "m", finger: "right-index" }, { key: ",", finger: "right-middle" }, { key: ".", finger: "right-ring" },
+            { key: "/", finger: "right-pinky" }, { key: "Shift", finger: "right-pinky", span: 5 },
+            { key: " ", finger: "thumb", span: 5, class: "space" }
+          ],
+          keyToFinger: {
+            '1': 'left-pinky', 'q': 'left-pinky', 'a': 'left-pinky', 'z': 'left-pinky',
+            '2': 'left-ring', 'w': 'left-ring', 'r': 'left-ring', 'x': 'left-ring',
+            '3': 'left-middle', 'f': 'left-middle', 's': 'left-middle', 'c': 'left-middle',
+            '4': 'left-index', '5': 'left-index', 'p': 'left-index', 'g': 'left-index',
+            't': 'left-index', 'd': 'left-index', 'v': 'left-index', 'b': 'left-index',
+            '6': 'right-index', '7': 'right-index', 'j': 'right-index', 'l': 'right-index',
+            'h': 'right-index', 'n': 'right-index', 'k': 'right-index', 'm': 'right-index',
+            '8': 'right-middle', 'u': 'right-middle', 'e': 'right-middle', ',': 'right-middle',
+            '9': 'right-ring', 'y': 'right-ring', 'i': 'right-ring', '.': 'right-ring',
+            '0': 'right-pinky', ';': 'right-pinky', 'o': 'right-pinky', '/': 'right-pinky',
+            '[': 'right-pinky', ']': 'right-pinky', '\\': 'right-pinky', "'": 'right-pinky',
+            '-': 'right-pinky', '=': 'right-pinky', 'Enter': 'right-pinky', 'Shift': 'right-pinky',
+            'Backspace': 'right-pinky', ' ': 'thumb'
+          }
+        }
+      };
+
+      function getRandomItem(arr) {
+        return arr[Math.floor(Math.random() * arr.length)];
+      }
+
+      function setNewText() {
+        targetText.classList.remove('incorrect');
+        if (practiceMode.value === 'single') {
+          currentText = getRandomItem(singleKeys);
+          currentWords = [];
+          wordIndex = 0;
+        } else if (practiceMode.value === 'pair') {
+          currentText = getRandomItem(keyPairs);
+          currentWords = [];
+          wordIndex = 0;
+        } else {
+          const fullText = getRandomItem(fullTexts);
+          currentWords = fullText.split(' ');
+          wordIndex = 0;
+          currentText = currentWords[wordIndex] || '';
+        }
+        targetText.textContent = currentText;
+        userInput.value = '';
+        feedback.textContent = '';
+        userInput.classList.remove('correct', 'error');
+        userInput.focus();
+      }
+
+      function advanceText() {
+        targetText.classList.remove('incorrect');
+        if (practiceMode.value === 'text') {
+          wordIndex++;
+          if (wordIndex < currentWords.length) {
+            currentText = currentWords[wordIndex];
+            targetText.textContent = currentText;
+          } else {
+            setNewText();
+          }
+        } else {
+          setNewText();
+        }
+        userInput.value = '';
+        feedback.textContent = '';
+        userInput.classList.remove('correct', 'error');
+        userInput.focus();
+      }
+
+      function startTimer() {
+        if (!timerInterval && !isPracticeActive) {
+          isPracticeActive = true;
+          timeLeft = parseInt(practiceDuration.value);
+          timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+          timerInterval = setInterval(() => {
+            timeLeft--;
+            timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+            if (timeLeft <= 0) {
+              clearInterval(timerInterval);
+              timerInterval = null;
+              isPracticeActive = false;
+              userInput.disabled = true;
+              showResults();
+            }
+          }, 1000);
+        }
+      }
+
+      function showResults() {
+        const accuracy = totalChars > 0 ? Math.round((correctChars / totalChars) * 100) : 0;
+        const sortedWords = Object.entries(errorWords)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 3)
+          .map(([word]) => word);
+        const practiceWordsText = sortedWords.length > 0
+          ? `Practice these: ${sortedWords.join(', ')}`
+          : 'No specific words need practice.';
+
+        document.getElementById('result-score').textContent = `Score: ${score}`;
+        document.getElementById('result-errors').textContent = `Error Hits: ${errorHits}`;
+        document.getElementById('result-accuracy').textContent = `Accuracy: ${accuracy}%`;
+        document.getElementById('result-practice-words').textContent = practiceWordsText;
+        resultsDiv.style.display = 'block';
+      }
+
+      function resetSession() {
+        score = 0;
+        totalChars = 0;
+        errorHits = 0;
+        correctChars = 0;
+        errorWords = {};
+        currentWords = [];
+        wordIndex = 0;
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+        timeLeft = 0;
+        isPracticeActive = false;
+        timerDisplay.textContent = `Time Left: 0s`;
+        scoreDisplay.textContent = `Score: ${score}`;
+        resultsDiv.style.display = 'none';
+        userInput.disabled = false;
+        setNewText();
+      }
+
+      function renderKeyboard(layout) {
+        keyboardContainer.innerHTML = '';
+        const keys = keyboardLayouts[layout].keys;
+        keys.forEach(({ key, finger, span, class: extraClass }) => {
+          const keyElement = document.createElement('div');
+          keyElement.className = `key ${finger} ${extraClass || ''}`;
+          keyElement.dataset.key = key;
+          keyElement.textContent = key;
+          if (span) {
+            keyElement.style.gridColumn = `span ${span}`;
+          }
+          keyboardContainer.appendChild(keyElement);
+        });
+      }
+
+      function highlightKey(key) {
+        const normalizedKey = key === ' ' ? ' ' : key.toLowerCase();
+        const keyElement = document.querySelector(`.key[data-key="${normalizedKey}"]`) ||
+                           document.querySelector(`.key[data-key="${key}"]`);
+        if (keyElement) {
+          keyElement.classList.add('highlight');
+          setTimeout(() => keyElement.classList.remove('highlight'), 1000);
+        }
+      }
+
+      practiceMode.addEventListener('change', resetSession);
+      practiceDuration.addEventListener('change', resetSession);
+
+      userInput.addEventListener('input', (e) => {
+        const currentLayout = layoutSelect.value;
+        const keyToFinger = keyboardLayouts[currentLayout].keyToFinger;
+        if (e.data && e.data.length === 1 && keyToFinger[e.data.toLowerCase()]) {
+          highlightKey(e.data);
+        }
+        if (!isPracticeActive) {
+          startTimer();
+        }
+        const input = userInput.value.trim();
+        const cleanText = practiceMode.value === 'text' ? currentText.replace(/[^a-zA-Z]/g, '') : currentText;
+
+        if (!input) {
+          userInput.classList.remove('correct', 'error');
+          feedback.textContent = '';
+          return;
+        }
+        totalChars += input.length;
+
+        if (input === cleanText) {
+          userInput.classList.add('correct');
+          userInput.classList.remove('error');
+          feedback.textContent = '';
+        } else if (cleanText.startsWith(input)) {
+          userInput.classList.add('correct');
+          userInput.classList.remove('error');
+          feedback.textContent = '';
+        } else {
+          userInput.classList.add('error');
+          userInput.classList.remove('correct');
+          feedback.textContent = 'Incorrect. Keep typing or correct your input.';
+          console.log('Error: input=', input, 'expected=', cleanText);
+        }
+      });
+
+      userInput.addEventListener('keydown', (e) => {
+        const currentLayout = layoutSelect.value;
+        const keyToFinger = keyboardLayouts[currentLayout].keyToFinger;
+        const inputValue = userInput.value.trim();
+        const cleanText = practiceMode.value === 'text' ? currentText.replace(/[^a-zA-Z]/g, '') : currentText;
+
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (e.key === ' ') {
+            highlightKey(' ');
+            e.preventDefault();
+          } else {
+            highlightKey('Enter');
+          }
+          if (inputValue !== '' && isPracticeActive) {
+            if (inputValue === cleanText) {
+              score++;
+              correctChars += cleanText.length;
+              scoreDisplay.textContent = `Score: ${score}`;
+              advanceText();
+            } else {
+              score = Math.max(0, score - 1);
+              errorHits++;
+              errorWords[currentText] = (errorWords[currentText] || 0) + 1;
+              scoreDisplay.textContent = `Score: ${score}`;
+              targetText.classList.add('incorrect');
+              feedback.textContent = 'Incorrect. Keep typing or correct your input.';
+              setTimeout(() => advanceText(), 300);
+            }
+          }
+        } else if (e.key.length === 1 && keyToFinger[e.key.toLowerCase()]) {
+          highlightKey(e.key);
+        }
+      });
+
+      resetBtn.addEventListener('click', resetSession);
+
+      restartBtn.addEventListener('click', () => {
+        resultsDiv.style.display = 'none';
+        resetSession();
+      });
+
+      layoutSelect.addEventListener('change', () => {
+        const selectedLayout = layoutSelect.value;
+        renderKeyboard(selectedLayout);
+      });
+
+      function setActiveNavLink() {
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+          const linkPath = link.getAttribute('href');
+          if (currentPath.includes('lesson.html') && linkPath.includes('lesson.html')) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+
+      setActiveNavLink();
+      renderKeyboard('qwerty');
+      resetSession();
+    });
+  </script>
+  <!-- Cloudflare scripts -->
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93acee17bb40b0c3',t:'MTc0NjQxMzQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c893139a3abfba',t:'MTc0NjcwMzI5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
+</html>

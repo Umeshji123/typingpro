@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Typing Game: A fun typing challenge to boost speed & accuracy.">
+  <meta name="keywords" content="typing game, typing test, typing practice, improve typing skills">
+  <meta name="author" content="Typing Game Team">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Typing Game - Test Your Typing Skills">
+  <meta property="og:description" content="Improve your typing speed and accuracy with this fun typing game.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/assets/index.html">
+  <meta property="og:image" content="https://yourdomain.com/assets/images/typing-game-og.jpg">
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Typing Game - Test Your Typing Skills">
+  <meta name="twitter:description" content="Improve your typing speed and accuracy with this fun typing game.">
+  <meta name="twitter:image" content="https://yourdomain.com/assets/images/typing-game-og.jpg">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Typing Master</title>
+  <!-- External CSS (uncomment and update path if assets/css/style.css exists) -->
+  <!-- <link rel="stylesheet" href="./css/style.css"> -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8fafc;
+      text-align: center;
+      color: #1f2a44;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: linear-gradient(145deg, #ffffff, #f1f5f9);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border: 1px solid #e2e8f0;
+      box-sizing: border-box;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #e2e8f0;
+      margin-bottom: 20px;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #319795;
+      text-decoration: none;
+    }
+    .logo:hover {
+      color: #38b2ac;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-size: 16px;
+      font-weight: 500;
+      color: #4a5568;
+      text-decoration: none;
+    }
+    nav a:hover, nav a.active {
+      color: #319795;
+    }
+    h1 {
+      color: #319795;
+      font-size: 40px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    h2 {
+      color: #319795;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 20px 0;
+    }
+    p {
+      font-size: 16px;
+      color: #4a5568;
+      margin: 12px 0;
+    }
+    #word {
+      font-size: 24px;
+      font-weight: 600;
+      color: #319795;
+      margin: 20px 0;
+      min-height: 32px;
+      word-wrap: break-word;
+    }
+    #word.incorrect {
+      background-color: #fed7d7;
+      animation: flash 0.3s ease;
+    }
+    @keyframes flash {
+      0% { background-color: #fed7d7; }
+      50% { background-color: transparent; }
+      100% { background-color: #fed7d7; }
+    }
+    #score {
+      font-size: 20px;
+      font-weight: 600;
+      color: #4a5568;
+      margin: 16px 0;
+    }
+    input {
+      width: calc(100% - 24px);
+      padding: 16px;
+      font-size: 16px;
+      margin: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #1f2a44;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-sizing: border-box;
+    }
+    input:focus {
+      outline: none;
+      border-color: #319795;
+      box-shadow: 0 0 0 3px rgba(49, 151, 149, 0.2);
+    }
+    select {
+      padding: 12px;
+      font-size: 16px;
+      margin: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+      color: #1f2a44;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+    }
+    select:focus {
+      outline: none;
+      border-color: #319795;
+      box-shadow: 0 0 0 3px rgba(49, 151, 149, 0.2);
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      margin: 8px;
+      cursor: pointer;
+      background: #ed8936;
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    button:hover {
+      background: #dd6b20;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    /* Finger Placement Styles */
+    #finger-placement {
+      margin: 20px 12px;
+      text-align: left;
+      background: #edf2f7;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 4px;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 12px;
+      padding: 10px;
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .key {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      background: #e2e8f0;
+      border: 1px solid #cbd5e0;
+      border-radius: 4px;
+      text-align: center;
+      min-height: 30px;
+    }
+    .key.left-pinky { background: #ff6b6b; color: #ffffff; }
+    .key.left-ring { background: #ff9f43; color: #ffffff; }
+    .key.left-middle { background: #feca57; color: #1f2a44; }
+    .key.left-index { background: #1dd1a1; color: #ffffff; }
+    .key.right-index { background: #00d2d3; color: #ffffff; }
+    .key.right-middle { background: #54a0ff; color: #ffffff; }
+    .key.right-ring { background: #5c7cfa; color: #ffffff; }
+    .key.right-pinky { background: #ff5e57; color: #ffffff; }
+    .key.thumb { background: #a29bfe; color: #ffffff; }
+    .key.space { grid-column: span 5; }
+    .key.highlight {
+      filter: brightness(1.2);
+      border: 2px solid #319795;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 48px;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    footer a {
+      color: #319795;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+    footer a:hover {
+      color: #38b2ac;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      h1 {
+        font-size: 32px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      p {
+        font-size: 14px;
+      }
+      #word {
+        font-size: 20px;
+      }
+      #score {
+        font-size: 18px;
+      }
+      input, button, select {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 8px;
+      }
+      .keyboard {
+        grid-template-columns: repeat(10, 1fr);
+        font-size: 10px;
+        gap: 2px;
+        padding: 8px;
+      }
+      .key {
+        padding: 6px;
+        min-height: 24px;
+      }
+      .legend {
+        font-size: 12px;
+        gap: 8px;
+      }
+      footer {
+        font-size: 12px;
+      }
+      footer a {
+        margin: 0 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="../index.html" class="logo" aria-label="Typing Game Home">Typing Master</a>
+      <nav role="navigation" aria-label="Main navigation">
+        <!-- Local testing -->
+        <a href="../index.html" alt="Typing Master Home">Home</a>
+        <a href="../tutorial.html" alt="Typing Master Tutorial">Tutorial</a>
+        <a href="./main.html" class="active" aria-current="page" alt="Typing Master Practice">Practice</a>
+        <a href="../lesson.html" alt="Typing Master Lesson">Lesson</a>
+        <a href="../public/leaderboard.html" alt="Typing Master Leaderboard">Leaderboard</a>
+        <!-- Hosting (uncomment for hosting) -->
+        <!--
+        <a href="/" alt="Typing Master Home">Home</a>
+        <a href="/tutorial.html" alt="Typing Master Tutorial">Tutorial</a>
+        <a href="/assets/index.html" class="active" aria-current="page" alt="Typing Master Practice">Practice</a>
+        <a href="/lesson.html" alt="Typing Master Lesson">Lesson</a>
+        <a href="/public/leaderboard.html" alt="Typing Master Leaderboard">Leaderboard</a>
+        -->
+      </nav>
+    </header>
+    <h1>⌨️ Practice ⌨️</h1>
+    <p>Test your typing speed and accuracy with this fun typing game!</p>
+    <p id="word">Loading...</p>
+    <input type="text" id="input" placeholder="Type the word here..." autofocus aria-label="Typing input area" />
+    <p id="score">Score: 0</p>
+    <!-- Keyboard Layout Selector -->
+    <div>
+      <label for="keyboard-layout">Select Keyboard Layout:</label>
+      <select id="keyboard-layout" aria-label="Select keyboard layout">
+        <option value="qwerty">QWERTY</option>
+        <option value="dvorak">Dvorak</option>
+        <option value="colemak">Colemak</option>
+      </select>
+    </div>
+    <!-- Finger Placement Guide -->
+    <div id="finger-placement" role="region" aria-label="Keyboard finger placement guide">
+      <h2>Finger Placement Guide</h2>
+      <p>Learn proper touch typing by placing your fingers on the home row. Type a key to see which finger to use.</p>
+      <div class="keyboard" id="keyboard">
+        <!-- Keyboard will be dynamically populated -->
+      </div>
+      <div class="legend">
+        <span><div class="legend-color" style="background: #ff6b6b;"></div> Left Pinky</span>
+        <span><div class="legend-color" style="background: #ff9f43;"></div> Left Ring</span>
+        <span><div class="legend-color" style="background: #feca57;"></div> Left Middle</span>
+        <span><div class="legend-color" style="background: #1dd1a1;"></div> Left Index</span>
+        <span><div class="legend-color" style="background: #00d2d3;"></div> Right Index</span>
+        <span><div class="legend-color" style="background: #54a0ff;"></div> Right Middle</span>
+        <span><div class="legend-color" style="background: #5c7cfa;"></div> Right Ring</span>
+        <span><div class="legend-color" style="background: #ff5e57;"></div> Right Pinky</span>
+        <span><div class="legend-color" style="background: #a29bfe;"></div> Thumb</span>
+      </div>
+    </div>
+    <footer>
+      <p>© 2025 Typing Game. Crafted with love for typing enthusiasts.</p>
+      <p>
+        <a href="../about.html" alt="Learn about Typing Game">About Us</a> | 
+        <a href="../privacy.html" alt="View Typing Game Privacy Policy">Privacy Policy</a> | 
+        <a href="../terms.html" alt="View Typing Game Terms of Service">Terms of Service</a> | 
+        <a href="../contact.html" alt="Contact Typing Game Support">Contact</a>
+        <!-- Hosting (uncomment for hosting) -->
+        <!--
+        <a href="/about.html" alt="Learn about Typing Game">About Us</a> | 
+        <a href="/privacy.html" alt="View Typing Game Privacy Policy">Privacy Policy</a> | 
+        <a href="/terms.html" alt="View Typing Game Terms of Service">Terms of Service</a> | 
+        <a href="/contact.html" alt="Contact Typing Game Support">Contact</a>
+        -->
+      </p>
+    </footer>
+  </div>
+  <script>
+    // Debugging
+    console.log('Practice page initialized');
+
+    // Typing game logic
+    const words = [
+      "🍎 apple", "🍌 banana", "🚗 car", "🐶 dog", "🐘 elephant", "🌲 forest", "🎸 guitar",
+      "🏠 house", "🏝️ island", "🌴 jungle", "🪁 kite", "🦁 lion", "⛰️ mountain", "🌃 night",
+      "🍊 orange", "🎹 piano", "👑 queen", "🌊 river", "🐍 snake", "🌳 tree", "☂️ umbrella",
+      "🎻 violin", "🐋 whale", "🎵 xylophone", "🛥️ yacht", "🦓 zebra", "🐅 tiger",
+      "🌸 flower", "🦋 butterfly", "🌙 moon", "⭐ star", "☁️ cloud", "🌈 rainbow", "🍃 leaf",
+      "🐢 turtle", "🦊 fox", "🦉 owl", "🌼 daisy", "🪶 feather", "🕯️ candle", "🔔 bell",
+      "🦌 deer", "🐬 dolphin", "🌾 grass", "🪨 rock", "🐝 bee", "🦒 giraffe", "🪴 plant",
+      "🌞 sun", "🐙 octopus", "🦚 peacock", "🍒 cherry", "🪞 mirror", "🦥 sloth", "🌵 cactus",
+      "🦦 otter", "🐠 fish", "🪝 hook", "🦔 hedgehog", "🍓 strawberry", "🪑 chair", "🦅 eagle",
+      "🌺 hibiscus", "🦈 shark", "🪟 window", "🐞 ladybug", "🍉 watermelon", "🦬 bison",
+      "🪺 nest", "🐳 seal", "🌷 tulip", "🦃 turkey", "🪷 lotus", "🐖 pig", "🦑 squid",
+      "🍑 peach", "🪜 ladder", "🦘 kangaroo", "🌴 palm", "🦜 parrot", "🍐 pear", "🎶 accordion",
+      "🐫 camel", "🌋 volcano", "🐇 rabbit", "🧹 broom", "🐾 porcupine", "🍇 grape", "🪵 branch",
+      "🦏 rhino", "🌅 sunrise", "🐶 puppy", "🪢 rope", "🐼 panda", "🍋 lemon", "🪮 comb",
+      "🐨 koala", "🌉 bridge", "🐄 cow", "🪧 sign", "🐺 wolf", "🍈 melon", "🪤 trap",
+      "🐻 bear", "🌒 crescent", "🐓 rooster", "🪨 stone", "🦌 antelope", "🍆 eggplant", "🪬 charm",
+      "🐺 hyena", "🌧️ drizzle", "🐈 cat", "🏮 lantern", "🦔 meerkat", "🍅 tomato", "🪲 beetle",
+      "🦌 gazelle", "🍃 breeze", "🐀 rat", "🦗 cricket", "🦩 ostrich", "🍄 mushroom", "🪵 log"
+    ];
+    let currentWord = "";
+    let score = 0;
+
+    const wordDisplay = document.getElementById("word");
+    const input = document.getElementById("input");
+    const scoreDisplay = document.getElementById("score");
+    const keyboardContainer = document.getElementById("keyboard");
+    const layoutSelect = document.getElementById("keyboard-layout");
+
+    // Keyboard layouts with key-to-finger mappings
+    const keyboardLayouts = {
+      qwerty: {
+        keys: [
+          // Row 1: Number Row
+          { key: "1", finger: "left-pinky" }, { key: "2", finger: "left-ring" }, { key: "3", finger: "left-middle" },
+          { key: "4", finger: "left-index" }, { key: "5", finger: "left-index" }, { key: "6", finger: "right-index" },
+          { key: "7", finger: "right-index" }, { key: "8", finger: "right-middle" }, { key: "9", finger: "right-ring" },
+          { key: "0", finger: "right-pinky" }, { key: "-", finger: "right-pinky" }, { key: "=", finger: "right-pinky" },
+          { key: "Backspace", finger: "right-pinky", span: 3 },
+          // Row 2: Top Row
+          { key: "q", finger: "left-pinky" }, { key: "w", finger: "left-ring" }, { key: "e", finger: "left-middle" },
+          { key: "r", finger: "left-index" }, { key: "t", finger: "left-index" }, { key: "y", finger: "right-index" },
+          { key: "u", finger: "right-index" }, { key: "i", finger: "right-middle" }, { key: "o", finger: "right-ring" },
+          { key: "p", finger: "right-pinky" }, { key: "[", finger: "right-pinky" }, { key: "]", finger: "right-pinky" },
+          { key: "\\", finger: "right-pinky", span: 3 },
+          // Row 3: Home Row
+          { key: "a", finger: "left-pinky" }, { key: "s", finger: "left-ring" }, { key: "d", finger: "left-middle" },
+          { key: "f", finger: "left-index" }, { key: "g", finger: "left-index" }, { key: "h", finger: "right-index" },
+          { key: "j", finger: "right-index" }, { key: "k", finger: "right-middle" }, { key: "l", finger: "right-ring" },
+          { key: ";", finger: "right-pinky" }, { key: "'", finger: "right-pinky" }, { key: "Enter", finger: "right-pinky", span: 4 },
+          // Row 4: Bottom Row
+          { key: "z", finger: "left-pinky" }, { key: "x", finger: "left-ring" }, { key: "c", finger: "left-middle" },
+          { key: "v", finger: "left-index" }, { key: "b", finger: "left-index" }, { key: "n", finger: "right-index" },
+          { key: "m", finger: "right-index" }, { key: ",", finger: "right-middle" }, { key: ".", finger: "right-ring" },
+          { key: "/", finger: "right-pinky" }, { key: "Shift", finger: "right-pinky", span: 5 },
+          // Row 5: Spacebar
+          { key: " ", finger: "thumb", span: 5, class: "space" }
+        ],
+        keyToFinger: {
+          '1': 'left-pinky', 'q': 'left-pinky', 'a': 'left-pinky', 'z': 'left-pinky',
+          '2': 'left-ring', 'w': 'left-ring', 's': 'left-ring', 'x': 'left-ring',
+          '3': 'left-middle', 'e': 'left-middle', 'd': 'left-middle', 'c': 'left-middle',
+          '4': 'left-index', '5': 'left-index', 'r': 'left-index', 't': 'left-index',
+          'f': 'left-index', 'g': 'left-index', 'v': 'left-index', 'b': 'left-index',
+          '6': 'right-index', '7': 'right-index', 'y': 'right-index', 'u': 'right-index',
+          'h': 'right-index', 'j': 'right-index', 'n': 'right-index', 'm': 'right-index',
+          '8': 'right-middle', 'i': 'right-middle', 'k': 'right-middle', ',': 'right-middle',
+          '9': 'right-ring', 'o': 'right-ring', 'l': 'right-ring', '.': 'right-ring',
+          '0': 'right-pinky', 'p': 'right-pinky', ';': 'right-pinky', '/': 'right-pinky',
+          '[': 'right-pinky', ']': 'right-pinky', '\\': 'right-pinky', "'": 'right-pinky',
+          '-': 'right-pinky', '=': 'right-pinky', 'Enter': 'right-pinky', 'Shift': 'right-pinky',
+          'Backspace': 'right-pinky', ' ': 'thumb'
+        }
+      },
+      dvorak: {
+        keys: [
+          // Row 1: Number Row (same as QWERTY)
+          { key: "1", finger: "left-pinky" }, { key: "2", finger: "left-ring" }, { key: "3", finger: "left-middle" },
+          { key: "4", finger: "left-index" }, { key: "5", finger: "left-index" }, { key: "6", finger: "right-index" },
+          { key: "7", finger: "right-index" }, { key: "8", finger: "right-middle" }, { key: "9", finger: "right-ring" },
+          { key: "0", finger: "right-pinky" }, { key: "[", finger: "right-pinky" }, { key: "]", finger: "right-pinky" },
+          { key: "Backspace", finger: "right-pinky", span: 3 },
+          // Row 2: Top Row
+          { key: "'", finger: "left-pinky" }, { key: ",", finger: "left-ring" }, { key: ".", finger: "left-middle" },
+          { key: "p", finger: "left-index" }, { key: "y", finger: "left-index" }, { key: "f", finger: "right-index" },
+          { key: "g", finger: "right-index" }, { key: "c", finger: "right-middle" }, { key: "r", finger: "right-ring" },
+          { key: "l", finger: "right-pinky" }, { key: "/", finger: "right-pinky" }, { key: "=", finger: "right-pinky" },
+          { key: "\\", finger: "right-pinky", span: 3 },
+          // Row 3: Home Row
+          { key: "a", finger: "left-pinky" }, { key: "o", finger: "left-ring" }, { key: "e", finger: "left-middle" },
+          { key: "u", finger: "left-index" }, { key: "i", finger: "left-index" }, { key: "d", finger: "right-index" },
+          { key: "h", finger: "right-index" }, { key: "t", finger: "right-middle" }, { key: "n", finger: "right-ring" },
+          { key: "s", finger: "right-pinky" }, { key: "-", finger: "right-pinky" }, { key: "Enter", finger: "right-pinky", span: 4 },
+          // Row 4: Bottom Row
+          { key: ";", finger: "left-pinky" }, { key: "q", finger: "left-ring" }, { key: "j", finger: "left-middle" },
+          { key: "k", finger: "left-index" }, { key: "x", finger: "left-index" }, { key: "b", finger: "right-index" },
+          { key: "m", finger: "right-index" }, { key: "w", finger: "right-middle" }, { key: "v", finger: "right-ring" },
+          { key: "z", finger: "right-pinky" }, { key: "Shift", finger: "right-pinky", span: 5 },
+          // Row 5: Spacebar
+          { key: " ", finger: "thumb", span: 5, class: "space" }
+        ],
+        keyToFinger: {
+          '1': 'left-pinky', "'": 'left-pinky', 'a': 'left-pinky', ';': 'left-pinky',
+          '2': 'left-ring', ',': 'left-ring', 'o': 'left-ring', 'q': 'left-ring',
+          '3': 'left-middle', '.': 'left-middle', 'e': 'left-middle', 'j': 'left-middle',
+          '4': 'left-index', '5': 'left-index', 'p': 'left-index', 'y': 'left-index',
+          'u': 'left-index', 'i': 'left-index', 'k': 'left-index', 'x': 'left-index',
+          '6': 'right-index', '7': 'right-index', 'f': 'right-index', 'g': 'right-index',
+          'd': 'right-index', 'h': 'right-index', 'b': 'right-index', 'm': 'right-index',
+          '8': 'right-middle', 'c': 'right-middle', 't': 'right-middle', 'w': 'right-middle',
+          '9': 'right-ring', 'r': 'right-ring', 'n': 'right-ring', 'v': 'right-ring',
+          '0': 'right-pinky', 'l': 'right-pinky', 's': 'right-pinky', 'z': 'right-pinky',
+          '[': 'right-pinky', ']': 'right-pinky', '/': 'right-pinky', '=': 'right-pinky',
+          '\\': 'right-pinky', '-': 'right-pinky', 'Enter': 'right-pinky', 'Shift': 'right-pinky',
+          'Backspace': 'right-pinky', ' ': 'thumb'
+        }
+      },
+      colemak: {
+        keys: [
+          // Row 1: Number Row (same as QWERTY)
+          { key: "1", finger: "left-pinky" }, { key: "2", finger: "left-ring" }, { key: "3", finger: "left-middle" },
+          { key: "4", finger: "left-index" }, { key: "5", finger: "left-index" }, { key: "6", finger: "right-index" },
+          { key: "7", finger: "right-index" }, { key: "8", finger: "right-middle" }, { key: "9", finger: "right-ring" },
+          { key: "0", finger: "right-pinky" }, { key: "-", finger: "right-pinky" }, { key: "=", finger: "right-pinky" },
+          { key: "Backspace", finger: "right-pinky", span: 3 },
+          // Row 2: Top Row
+          { key: "q", finger: "left-pinky" }, { key: "w", finger: "left-ring" }, { key: "f", finger: "left-middle" },
+          { key: "p", finger: "left-index" }, { key: "g", finger: "left-index" }, { key: "j", finger: "right-index" },
+          { key: "l", finger: "right-index" }, { key: "u", finger: "right-middle" }, { key: "y", finger: "right-ring" },
+          { key: ";", finger: "right-pinky" }, { key: "[", finger: "right-pinky" }, { key: "]", finger: "right-pinky" },
+          { key: "\\", finger: "right-pinky", span: 3 },
+          // Row 3: Home Row
+          { key: "a", finger: "left-pinky" }, { key: "r", finger: "left-ring" }, { key: "s", finger: "left-middle" },
+          { key: "t", finger: "left-index" }, { key: "d", finger: "left-index" }, { key: "h", finger: "right-index" },
+          { key: "n", finger: "right-index" }, { key: "e", finger: "right-middle" }, { key: "i", finger: "right-ring" },
+          { key: "o", finger: "right-pinky" }, { key: "'", finger: "right-pinky" }, { key: "Enter", finger: "right-pinky", span: 4 },
+          // Row 4: Bottom Row
+          { key: "z", finger: "left-pinky" }, { key: "x", finger: "left-ring" }, { key: "c", finger: "left-middle" },
+          { key: "v", finger: "left-index" }, { key: "b", finger: "left-index" }, { key: "k", finger: "right-index" },
+          { key: "m", finger: "right-index" }, { key: ",", finger: "right-middle" }, { key: ".", finger: "right-ring" },
+          { key: "/", finger: "right-pinky" }, { key: "Shift", finger: "right-pinky", span: 5 },
+          // Row 5: Spacebar
+          { key: " ", finger: "thumb", span: 5, class: "space" }
+        ],
+        keyToFinger: {
+          '1': 'left-pinky', 'q': 'left-pinky', 'a': 'left-pinky', 'z': 'left-pinky',
+          '2': 'left-ring', 'w': 'left-ring', 'r': 'left-ring', 'x': 'left-ring',
+          '3': 'left-middle', 'f': 'left-middle', 's': 'left-middle', 'c': 'left-middle',
+          '4': 'left-index', '5': 'left-index', 'p': 'left-index', 'g': 'left-index',
+          't': 'left-index', 'd': 'left-index', 'v': 'left-index', 'b': 'left-index',
+          '6': 'right-index', '7': 'right-index', 'j': 'right-index', 'l': 'right-index',
+          'h': 'right-index', 'n': 'right-index', 'k': 'right-index', 'm': 'right-index',
+          '8': 'right-middle', 'u': 'right-middle', 'e': 'right-middle', ',': 'right-middle',
+          '9': 'right-ring', 'y': 'right-ring', 'i': 'right-ring', '.': 'right-ring',
+          '0': 'right-pinky', ';': 'right-pinky', 'o': 'right-pinky', '/': 'right-pinky',
+          '[': 'right-pinky', ']': 'right-pinky', '\\': 'right-pinky', "'": 'right-pinky',
+          '-': 'right-pinky', '=': 'right-pinky', 'Enter': 'right-pinky', 'Shift': 'right-pinky',
+          'Backspace': 'right-pinky', ' ': 'thumb'
+        }
+      }
+    };
+
+    // Function to render the keyboard layout
+    function renderKeyboard(layout) {
+      keyboardContainer.innerHTML = '';
+      const keys = keyboardLayouts[layout].keys;
+      keys.forEach(({ key, finger, span, class: extraClass }) => {
+        const keyElement = document.createElement('div');
+        keyElement.className = `key ${finger} ${extraClass || ''}`;
+        keyElement.dataset.key = key;
+        keyElement.textContent = key;
+        if (span) {
+          keyElement.style.gridColumn = `span ${span}`;
+        }
+        keyboardContainer.appendChild(keyElement);
+      });
+    }
+
+    // Highlight key in keyboard diagram
+    function highlightKey(key) {
+      const normalizedKey = key.toLowerCase();
+      const keyElement = document.querySelector(`.key[data-key="${normalizedKey}"]`) ||
+                         document.querySelector(`.key[data-key="${key}"]`);
+      if (keyElement) {
+        keyElement.classList.add('highlight');
+        setTimeout(() => keyElement.classList.remove('highlight'), 1000);
+      }
+    }
+
+    function newWord() {
+      wordDisplay.classList.remove('incorrect');
+      currentWord = words[Math.floor(Math.random() * words.length)];
+      wordDisplay.textContent = currentWord;
+      input.value = "";
+    }
+
+    input.addEventListener("input", (e) => {
+      const currentLayout = layoutSelect.value;
+      const keyToFinger = keyboardLayouts[currentLayout].keyToFinger;
+      if (e.data && e.data.length === 1 && keyToFinger[e.data.toLowerCase()]) {
+        highlightKey(e.data);
+      }
+      const cleanWord = currentWord.replace(/[^a-zA-Z]/g, "");
+      const inputValue = input.value.trim();
+
+      if (e.inputType === "insertText" && (e.data === " " || e.data === "\n")) {
+        if (inputValue === cleanWord) {
+          score++;
+          scoreDisplay.textContent = `Score: ${score}`;
+          newWord();
+        } else if (inputValue !== "") {
+          score = Math.max(0, score - 1);
+          scoreDisplay.textContent = `Score: ${score}`;
+          wordDisplay.classList.add('incorrect');
+          setTimeout(() => newWord(), 300);
+        }
+      }
+    });
+
+    input.addEventListener("keydown", (e) => {
+      const currentLayout = layoutSelect.value;
+      const keyToFinger = keyboardLayouts[currentLayout].keyToFinger;
+      if (e.key === "Enter") {
+        const cleanWord = currentWord.replace(/[^a-zA-Z]/g, "");
+        const inputValue = input.value.trim();
+        if (inputValue === cleanWord) {
+          score++;
+          scoreDisplay.textContent = `Score: ${score}`;
+          newWord();
+        } else if (inputValue !== "") {
+          score = Math.max(0, score - 1);
+          scoreDisplay.textContent = `Score: ${score}`;
+          wordDisplay.classList.add('incorrect');
+          setTimeout(() => newWord(), 300);
+        }
+      } else if (e.key.length === 1 && keyToFinger[e.key.toLowerCase()]) {
+        highlightKey(e.key);
+      } else if (e.key === 'Space') {
+        highlightKey(' ');
+      }
+    });
+
+    // Handle keyboard layout change
+    layoutSelect.addEventListener("change", () => {
+      const selectedLayout = layoutSelect.value;
+      renderKeyboard(selectedLayout);
+    });
+
+    // Set active navigation link
+    function setActiveNavLink() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (currentPath.includes('assets/index.html') && linkPath.includes('assets/index.html')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    // Initialize
+    setActiveNavLink();
+    renderKeyboard('qwerty');
+    newWord();
+  </script>
+  <!-- External JS (uncomment and update path if assets/javascript/script.js exists) -->
+  <!-- <script src="./javascript/script.js"></script> -->
+  <!-- Cloudflare script (uncomment for hosting with Cloudflare) -->
+  <!--
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93c86062ecd8b099',t:'MTc0NjcwMTIyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  -->
+</body>
+</html>
